@@ -14,13 +14,11 @@ A corrected version of the article can be found [at this link](/pdf/TDA_for_Slug
 ---
 ## Hybrid Approaches to Virtual Flow Metering  
 Multiphase flow can be simulated and predicted in case sensor data are not available. While this could be done via either physical simulators 
-or data-driven machine learning models, hybrid approaches provide a more versatile approach especially when coupled with cloud achitectures.</br> 
-In progress.
+or data-driven machine learning models, hybrid approaches provide a more versatile approach especially when coupled with cloud achitectures.</br> In progress.
 
 ---
 ## Condition Monitoring of Wind Turbine Data
-Several data science methods are used to predict failures in wind turbines for energy generation. 
-In progress.
+Several data science methods are used to predict failures in wind turbines for energy generation.</br>In progress.
 
 ---
 [Project 3 Title](http://example.com/)
