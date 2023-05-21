@@ -8,9 +8,7 @@ Here is some text about this project. \
 The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are few typos in the formulas.\
 A corrected version of the article can be found [at this link](/pdf/TDA_for_Slugs_Article_fixed.pdf).
 
-<p align="center">
-  <img src="images/slugging_CBM.png" width=50% height=50%>
-</p>
+<p align="center"><img src="images/slugging_CBM.png" width=50% height=50%></p>
 
 ---
 [Project 1 Title](/sample_page)
