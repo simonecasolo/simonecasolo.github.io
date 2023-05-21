@@ -3,7 +3,11 @@
 ---
 
 ### Category Name 1 
+[Topological Data Analysis for Slugging in Offshore Wells](/sample_page)
+<img src="images/slugging_CBM_website.png?raw=true"/>
 
+Here is some text about this project. 
+---
 [Project 1 Title](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
