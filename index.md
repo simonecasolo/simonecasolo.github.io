@@ -2,11 +2,14 @@
 
 ---
 
-### Category Name 1 
-[Topological Data Analysis for Slugging in Offshore Wells](/sample_page)
-<img src="images/slugging_CBM_website.png?raw=true"/>
+### Selected Projects and Publications: 
+## Topological Data Analysis for Slugging in Offshore Wells
+Here is some text about this project. \
+The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are few typos in the formulas.\
+A corrected version of the article can be found [at this link](/sample_page). 
 
-Here is some text about this project. 
+<img src="images/slugging_CBM_website.png" width=50% height=50%>
+
 ---
 [Project 1 Title](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
