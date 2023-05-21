@@ -2,10 +2,12 @@
 
 ---
 
-### Selected Projects and Publications: 
-## Topological Data Analysis for Slugging in Offshore Wells
-Here is some text about this project. \
-The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are few typos in the formulas.\
+## Selected Projects and Publications: 
+### Topological Data Analysis of Slug Flow in Offshore Wells
+In this project TDA is used to perform signal analysis on offshore sensors data and condition monitoring of the multiphase flow.  
+The undesired transition from regular to severe slugging flow is identified and classified with machine learning.\  
+The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) 
+but there are few typos in the formulas.\
 A corrected version of the article can be found [at this link](/pdf/TDA_for_Slugs_Article_fixed.pdf).
 
 <p align="center"><img src="images/slugging_CBM.png"></p> 
