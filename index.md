@@ -19,8 +19,9 @@ In progress.
 ---
 ## Gas-Surface Interaction in Materials: Hydrogen dynamics
 In my academic days, I have worked at simulating the interaction between gas molecules and material surfaces.
-In particular, I worked on graphene and hydrogen.<br>
-Most of my work on this matter, is summarized in a chapter par of the book below:<br> 
+In particular, I worked on the dynamics of hydrogen on [graphene](https://en.wikipedia.org/wiki/Graphene) and graphite surfaces.<br>
+Most of my work on this matter is [summarized in a chapter](https://link.springer.com/chapter/10.1007/978-3-642-32955-5_7) part of this book.<br> 
+Other studies were published on international scientific journals. You can find the whole list at my Google Scholar [page](https://scholar.google.no/citations?user=l9E9Zs4AAAAJ&hl=en). 
 
 <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-642-32955-5?as=webp" width="290" height="440">
 
