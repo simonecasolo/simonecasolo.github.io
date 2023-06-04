@@ -22,7 +22,7 @@ In my academic days, I have worked at simulating the interaction between gas mol
 In particular, I worked on graphene and hydrogen.<br>
 Most of my work on this matter, is summarized in a chapter par of the book below:<br> 
 
-![](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-642-32955-5?as=webp | width=100)
+<img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-642-32955-5?as=webp" width="290" height="440">
 
 ---
 ## Condition Monitoring of Wind Turbine Data
