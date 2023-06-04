@@ -17,6 +17,14 @@ or data-driven machine learning models, hybrid approaches provide a more versati
 In progress.
 
 ---
+## Gas-Surface Interaction in Materials: Hydrogen dynamics
+In my academic days, I have worked at simulating the interaction between gas molecules and material surfaces.
+In particular, I worked on graphene and hydrogen.<br>
+Most of my work on this matter, is summarized in a chapter par of the book below:<br> 
+
+<p align="center"><img src="images/Cover_Busnengo.png"></p> 
+
+---
 ## Condition Monitoring of Wind Turbine Data
 Several data science methods are used to predict failures in wind turbines for energy generation.<br>
 In progress.
