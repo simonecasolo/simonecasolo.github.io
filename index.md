@@ -1,3 +1,6 @@
+Welcome to my Data Science Portfolio. I specialize in applying data science and machine learning to heavy industries such as process industries, energy and chemicals where dealing with complex and messy sensor data is a challenge. In particular, I have a keen interest in topological and geometrical methods.<br>  
+Here you can find some highlights of practical data-driven solutions for real-world challenges in heavy industries, focusing on enhancing efficiency, safety, and sustainability.<br>   
+
 ## Portfolio
 
 ---
