@@ -1,7 +1,7 @@
 Welcome to my webpage. I specialize in applying data science and machine learning to heavy industries 
 such as process, energy and chemicals where dealing with complex and messy sensor data is a challenge. 
 In particular, I have a keen interest in topological and geometrical methods.<br> 
-Here are some highlights of use cases for real-world challenges in heavy industries, 
+Here are some highlights of use cases for real-world challenges in heavy asset industries, 
 focusing on enhancing efficiency, safety, and sustainability.<br>   
 
 ## Portfolio
