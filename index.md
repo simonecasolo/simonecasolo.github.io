@@ -23,7 +23,7 @@ or data-driven machine learning models, hybrid approaches provide a more versati
 contextualised live data. 
 This particular use case was dealing with wells at the end of their lifecycle when water cuts are high and accurate oil rates become economically 
 more important.<br> 
-This was published in [Digital Chemical Engineering, Vol.10, page 100124 (2023)](https://www.sciencedirect.com/science/article/pii/S277250812300042X)
+This was published in [Digital Chemical Engineering, Vol.9, page 100124 (2023)](https://www.sciencedirect.com/science/article/pii/S277250812300042X)
 
 
 ---
