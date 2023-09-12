@@ -19,8 +19,11 @@ A corrected version of the article can be found [at this link](/pdf/TDA_for_Slug
 ---
 ## Hybrid Approaches to Virtual Flow Metering  
 Multiphase flow can be simulated and predicted in case sensor data are not available. While this could be done via either physical simulators 
-or data-driven machine learning models, hybrid approaches provide a more versatile approach especially when coupled with cloud architectures.<br> 
-In progress.
+or data-driven machine learning models, hybrid approaches provide a more versatile approach especially when coupled with cloud architectures. 
+This particular use case, was dealing with wells at the end of their lifecycle, when water cuts are high and accurate oil rates become economically 
+more important.<br> 
+This was published in [Digital Chemical Engineering, (2023)](https://www.sciencedirect.com/science/article/pii/S277250812300042X)
+
 
 ---
 ## Gas-Surface Interaction in Materials: Hydrogen dynamics
