@@ -15,10 +15,10 @@ In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis)
 was applied alongside more traditional (Fourier)
 signal analysis, to condition-based monitoring (CBM) of wind turbines for energy generation. 
 Data was acquired from a wind park in Norway using vibration sensors at different locations on the turbine's gearbox, 
-recording acceleration data and its frequency spectra at infrequent intervals.<br> 
+recording acceleration data and its frequency spectra at infrequent intervals.
 Topological methods were used to analyze the
 shape of the point cloud from vibration time series and generate topology-based key health indicators based on Betti numbers, 
-information entropy, and signal persistence.<br> 
+information entropy, and signal persistence. 
 These indicators were tested for CBM and fault detection, successfully identifying and classifying faults in wind turbines.<br> 
 This work was presented at the 8th European Conference of the Prognostics and Health Management Society [PHM-Europe 2024](https://phm-europe.org/) and 
 a full-text paper is available on the [ArXiv at this link](https://arxiv.org/abs/2406.16380).
