@@ -14,10 +14,8 @@ and reduce downtime, leading to significant cost savings and increased efficienc
 In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) 
 was applied alongside more traditional (Fourier)
 signal analysis, to condition-based monitoring (CBM) of wind turbines for energy generation. 
-The investigation focused on identifying early signatures of gear-tooth and ball-bearing failures by means of extracting meaningful
-information from complex datasets by analyzing their structure in state space and computing their underlying topological features. 
-Data was acquired from a wind park in Norway using standard vibration sensors at different locations on the turbine's gearbox, 
-recording vibration acceleration data and its frequency spectra at infrequent intervals for a few seconds at high frequency.<br> 
+Data was acquired from a wind park in Norway using vibration sensors at different locations on the turbine's gearbox, 
+recording acceleration data and its frequency spectra at infrequent intervals.<br> 
 Topological methods were used to analyze the
 shape of the point cloud from vibration time series and generate topology-based key health indicators based on Betti numbers, 
 information entropy, and signal persistence.<br> 
