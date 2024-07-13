@@ -7,14 +7,6 @@ focusing on enhancing efficiency, safety, and sustainability.<br>
 # Selected Projects and Publications: 
 ---
 
-## Topological Data Analysis of Slug Flow in Offshore Wells
-In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)) was used to perform signal analysis on offshore sensors data and condition monitoring of the multiphase flow. The undesired transition from regular to severe slugging flow is identified and classified with machine learning.<br> 
-The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are a few typos in the formulae.<br> 
-A corrected version of the article can be found [at this link](/pdf/TDA_for_Slugs_Article_fixed.pdf).
-
-<p align="center"><img src="images/slugging_CBM.png"></p> 
-
----
 ## Topological Data Analysis for Condition Monitoring of Wind Turbines
 
 Condition monitoring and predictive maintenance are crucial in data science as they help prevent equipment failures
@@ -36,7 +28,7 @@ a full-text paper is available on the [ArXiv at this link](https://arxiv.org/abs
 <p align="center"><img src="images/wind_turbine_CBM.png"></p> 
 
 ---
-## Hybrid Approaches to Virtual Flow Metering  
+## Hybrid ML Approaches to Virtual Flow Metering in Multi-phase Wells 
 Multiphase flow can be simulated and predicted in case sensor data are not available. While this could be done via either physical simulators 
 or data-driven machine learning models, hybrid approaches provide a more versatile approach especially when coupled with cloud architectures and 
 contextualised live data. 
@@ -44,6 +36,14 @@ This particular use case was dealing with wells at the end of their lifecycle wh
 more important.<br> 
 This was published in [Digital Chemical Engineering, Vol.9, page 100124 (2023)](https://www.sciencedirect.com/science/article/pii/S277250812300042X)
 
+---
+
+## Topological Data Analysis of Slug Flow in Offshore Wells
+In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)) was used to perform signal analysis on offshore sensors data and condition monitoring of the multiphase flow. The undesired transition from regular to severe slugging flow is identified and classified with machine learning.<br> 
+The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are a few typos in the formulae.<br> 
+A corrected version of the article can be found [at this link](/pdf/TDA_for_Slugs_Article_fixed.pdf).
+
+<p align="center"><img src="images/slugging_CBM.png"></p> 
 
 ---
 ## Gas-Surface Interaction in Materials: Hydrogen dynamics
