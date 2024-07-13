@@ -4,13 +4,12 @@ In particular, I have a keen interest in topological and geometrical methods.<br
 Here are some highlights of use cases for real-world challenges in heavy asset industries, 
 focusing on enhancing efficiency, safety, and sustainability.<br>   
 
-## Portfolio
+# Portfolio
 
 ---
 
-### Selected Projects and Publications: 
+## Selected Projects and Publications: 
 
----
 
 ## Topological Data Analysis of Slug Flow in Offshore Wells
 In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)) was used to perform signal analysis on offshore sensors data and condition monitoring of the multiphase flow. The undesired transition from regular to severe slugging flow is identified and classified with machine learning.<br> 
