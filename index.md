@@ -9,12 +9,36 @@ focusing on enhancing efficiency, safety, and sustainability.<br>
 ---
 
 ### Selected Projects and Publications: 
+
+---
+
 ## Topological Data Analysis of Slug Flow in Offshore Wells
 In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)) was used to perform signal analysis on offshore sensors data and condition monitoring of the multiphase flow. The undesired transition from regular to severe slugging flow is identified and classified with machine learning.<br> 
 The article was published in [Digital Chemical Engineering, Vol.4, page 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357) but there are a few typos in the formulae.<br> 
 A corrected version of the article can be found [at this link](/pdf/TDA_for_Slugs_Article_fixed.pdf).
 
 <p align="center"><img src="images/slugging_CBM.png"></p> 
+
+---
+## Topological Data Analysis for Condition Monitoring of Wind Turbines
+
+Condition monitoring and predictive maintenance are crucial in data science as they help prevent equipment failures
+and reduce downtime, leading to significant cost savings and increased efficiency. 
+In this project, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) 
+was applied alongside more traditional (Fourier)
+signal analysis, to condition-based monitoring (CBM) of wind turbines for energy generation. 
+The investigation focused on identifying early signatures of gear-tooth and ball-bearing failures by means of extracting meaningful
+information from complex datasets by analyzing their structure in state space and computing their underlying topological features. 
+Data was acquired from a wind park in Norway using standard vibration sensors at different locations on the turbine's gearbox, 
+recording vibration acceleration data and its frequency spectra at infrequent intervals for a few seconds at high frequency.<br> 
+Topological methods, such as ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)), were used to analyze the
+shape of the point cloud from vibration time series and generate topology-based key health indicators based on Betti numbers, 
+information entropy, and signal persistence.<br> 
+These indicators were tested for CBM and fault detection, successfully identifying and classifying faults in wind turbines.<br> 
+The article was presented at the 8th European Conference of the Prognostics and Health Management Society [PHM-Europe 2024](https://phm-europe.org/) and 
+is available on the [ArXiv at this link](https://arxiv.org/abs/2406.16380).
+
+<p align="center"><img src="images/wind_turbine_CBM.png"></p> 
 
 ---
 ## Hybrid Approaches to Virtual Flow Metering  
@@ -35,10 +59,6 @@ Other studies were published on international scientific journals. You can find 
 
 <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-642-32955-5?as=webp" width="290" height="440">
 
----
-## Condition Monitoring of Wind Turbine Data
-Several data science methods are used to predict failures in wind turbines for energy generation.<br>
-In progress.
 
 ---
 [Project 3 Title](http://example.com/)
