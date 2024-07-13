@@ -30,12 +30,12 @@ The investigation focused on identifying early signatures of gear-tooth and ball
 information from complex datasets by analyzing their structure in state space and computing their underlying topological features. 
 Data was acquired from a wind park in Norway using standard vibration sensors at different locations on the turbine's gearbox, 
 recording vibration acceleration data and its frequency spectra at infrequent intervals for a few seconds at high frequency.<br> 
-Topological methods, such as ([persistent homology](https://en.wikipedia.org/wiki/Persistent_homology)), were used to analyze the
+Topological methods were used to analyze the
 shape of the point cloud from vibration time series and generate topology-based key health indicators based on Betti numbers, 
 information entropy, and signal persistence.<br> 
 These indicators were tested for CBM and fault detection, successfully identifying and classifying faults in wind turbines.<br> 
-The article was presented at the 8th European Conference of the Prognostics and Health Management Society [PHM-Europe 2024](https://phm-europe.org/) and 
-is available on the [ArXiv at this link](https://arxiv.org/abs/2406.16380).
+This work was presented at the 8th European Conference of the Prognostics and Health Management Society [PHM-Europe 2024](https://phm-europe.org/) and 
+a full-text paper is available on the [ArXiv at this link](https://arxiv.org/abs/2406.16380).
 
 <p align="center"><img src="images/wind_turbine_CBM.png"></p> 
 
@@ -54,16 +54,10 @@ This was published in [Digital Chemical Engineering, Vol.9, page 100124 (2023)](
 In my academic days, I have worked at simulating the interaction between gas molecules and material surfaces.
 In particular, I worked on the dynamics of hydrogen on [graphene](https://en.wikipedia.org/wiki/Graphene) and graphite surfaces.<br>
 Most of my work on this matter is [summarized in a chapter](https://link.springer.com/chapter/10.1007/978-3-642-32955-5_7) part of this book.<br> 
-Other studies were published on international scientific journals. You can find the whole list at my Google Scholar [page](https://scholar.google.no/citations?user=l9E9Zs4AAAAJ&hl=en). 
+Other studies were published in international scientific journals. You can find the whole list at my Google Scholar [page](https://scholar.google.no/citations?user=l9E9Zs4AAAAJ&hl=en). 
 
 <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-642-32955-5?as=webp" width="290" height="440">
 
-
----
-[Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
 
 ### Category Name 2
 
