@@ -16,12 +16,12 @@ was applied alongside more traditional (Fourier)
 signal analysis, to condition-based monitoring (CBM) of wind turbines for energy generation. 
 Data was acquired from a wind park in Norway using vibration sensors at different locations on the turbine's gearbox, 
 recording acceleration data and its frequency spectra at infrequent intervals.
-Topological methods were used to analyze the
-shape of the point cloud from vibration time series and generate topology-based key health indicators based on Betti numbers, 
-information entropy, and signal persistence. 
-These indicators were tested for CBM and fault detection, successfully identifying and classifying faults in wind turbines.<br> 
+Topological methods were used to analyze the shape of the point cloud from vibration time series and generate 
+topology-based key health indicators. 
+These indicators were tested for CBM and fault detection, successfully identifying and classifying faults.<br> 
 This work was presented at the 8th European Conference of the Prognostics and Health Management Society [PHM-Europe 2024](https://phm-europe.org/) and 
-a full-text paper is available on the [ArXiv at this link](https://arxiv.org/abs/2406.16380).
+a full-text paper is available on the [ArXiv](https://arxiv.org/abs/2406.16380) or at the
+[conference proceedings](https://papers.phmsociety.org/index.php/phme/article/view/4117).
 
 <p align="center"><img src="images/wind_turbine_CBM.png"></p> 
 
