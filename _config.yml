@@ -10,6 +10,7 @@ description: > # your text below (remove <br> elements if you don't need line br
   Ph.D. in theoretical chemistry from <a href="https://www.unimi.it/en">University of Milan.</a> </br>
   </br></br>
   <a href="https://www.linkedin.com/in/simone-casolo-6468a324/">View my LinkedIn Profile</a> </br>
+  <a href="https://www.linkedin.com/in/simone-casolo-6468a324/"><i class="fab fa-linkedin"></i> View my LinkedIn Profile</a> </br>
   <a href="https://scholar.google.com/citations?user=l9E9Zs4AAAAJ&hl=en&authuser=1">View my Google Scholar Profile</a>    </br>
   
 theme: jekyll-theme-minimal
