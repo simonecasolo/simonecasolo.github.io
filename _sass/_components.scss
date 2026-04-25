@@ -90,6 +90,24 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// About landing: full-width title; body text in a left column beside the photo (no float wrap)
+.about-page {
+  .about-landing-row {
+    .about-landing-main {
+      min-width: 0;
+    }
+
+    .about-landing-sidebar .profile.about-profile-card,
+    .about-landing-sidebar .about-profile-card {
+      float: none;
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
 // CV
 
 .cv {
