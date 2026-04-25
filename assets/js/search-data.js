@@ -422,8 +422,8 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-topological-data-analysis-for-wind-turbine-condition-monitoring",
-          title: 'Topological data analysis for wind turbine condition monitoring',
+          section: "News",},{id: "projects-testing-topological-data-analysis-for-wind-turbine-condition-monitoring",
+          title: 'Testing topological data analysis for wind turbine condition monitoring',
           description: "Vibration-based CBM with topology-derived health indicators (Norwegian wind park data).",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_wind_tda/";
