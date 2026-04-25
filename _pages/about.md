@@ -6,7 +6,7 @@ subtitle: Manager and industrial data scientist at <a href="https://www.cognite.
 
 profile:
   align: right
-  image: profile_photo.png
+  image: profile_photo.jpg
   image_circular: false
   more_info: >
 
