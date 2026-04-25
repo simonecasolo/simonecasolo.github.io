@@ -427,9 +427,9 @@ ninja.data = [{
           description: "Vibration-based CBM with topology-derived health indicators (Norwegian wind park data).",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_wind_tda/";
-            },},{id: "projects-hybrid-ml-for-virtual-flow-metering-in-multi-phase-wells",
-          title: 'Hybrid ML for virtual flow metering in multi-phase wells',
-          description: "Combining physical and data-driven models for oil–water–gas rate estimation when sensors are sparse.",
+            },},{id: "projects-cloud-based-hybrid-virtual-flow-metering-offshore-gas-field",
+          title: 'Cloud-based hybrid virtual flow metering (offshore gas field)',
+          description: "Hybrid physics–data virtual flow metering in the cloud for water production monitoring offshore.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_vfm_hybrid/";
             },},{id: "projects-topological-analysis-of-slug-flow-in-offshore-wells",
