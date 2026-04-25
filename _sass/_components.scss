@@ -106,6 +106,25 @@ ul.task-list input[type="checkbox"] {
       margin-right: 0;
     }
   }
+
+  // Selected publications: nested Bootstrap rows use negative margins that break alignment
+  // inside col-md-8; bibliography also leaves an empty col-sm-2 when thumbnails are on
+  // but an entry has no abbr/preview.
+  .about-landing-main .publications {
+    ol.bibliography li .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    ol.bibliography li .row > div.abbr:not(:has(> *)) {
+      display: none;
+    }
+
+    ol.bibliography li .row > div.abbr:not(:has(> *)) ~ div {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
 }
 
 // CV
