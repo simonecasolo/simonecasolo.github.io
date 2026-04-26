@@ -24,11 +24,15 @@
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
-    border-top: 1px solid var(--global-divider-color);
-    padding-top: 1rem;
-    margin-top: 2rem;
-    text-align: right;
+    color: var(--global-text-color);
+    border-top: none;
+    border-bottom: none;
+    padding-top: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.35rem;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 
   ol.bibliography {
@@ -187,20 +191,15 @@
   color: var(--global-theme-color);
 }
 
-// Full bibliography on /publications/ — compact list, no year divider lines
-// Chained `.publications.publications-full-list` beats `.publications h2.bibliography` specificity.
+// Full bibliography on /publications/ — tighter list (year headings use global h2.bibliography)
 .publications.publications-full-list {
   margin-top: 0.5rem;
 
   h2.bibliography {
-    border-top: none !important;
-    border-bottom: none;
-    padding-top: 0.25rem;
-    margin-top: 0.5rem;
+    margin-top: 0.65rem;
     margin-bottom: 0.15rem;
-    text-align: left;
+    padding-top: 0.25rem;
     font-size: 1.05rem;
-    color: var(--global-text-color);
   }
 
   ol.bibliography > li {
