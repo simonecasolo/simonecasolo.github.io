@@ -186,3 +186,50 @@
 .citation-number {
   color: var(--global-theme-color);
 }
+
+// Full bibliography on /publications/ — compact list, no year divider lines
+// Chained `.publications.publications-full-list` beats `.publications h2.bibliography` specificity.
+.publications.publications-full-list {
+  margin-top: 0.5rem;
+
+  h2.bibliography {
+    border-top: none !important;
+    border-bottom: none;
+    padding-top: 0.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.15rem;
+    text-align: left;
+    font-size: 1.05rem;
+    color: var(--global-text-color);
+  }
+
+  ol.bibliography > li {
+    margin-bottom: 0.35rem;
+    padding-bottom: 0;
+
+    .row {
+      margin-bottom: 0;
+    }
+
+    .title {
+      margin-bottom: 0.1rem;
+    }
+
+    .author {
+      margin-bottom: 0.15rem;
+    }
+
+    .periodical {
+      margin-bottom: 0.1rem;
+    }
+
+    .badges {
+      padding-bottom: 0.1rem;
+    }
+
+    .links {
+      margin-top: 0.15rem;
+      margin-bottom: 0;
+    }
+  }
+}

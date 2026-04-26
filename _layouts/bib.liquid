@@ -178,14 +178,54 @@
     {% if hook_exists == 'true' %}
       {% include hook/bib.liquid %}
     {% endif %}
+    {% assign bib_vol = entry.volume | default: entry["volume"] | strip %}
+    {% assign bib_num = entry.number | default: entry["number"] | strip %}
+    {% assign bib_pages = entry.pages | default: entry["pages"] | strip %}
+    {% assign pub_volume_line = "" %}
+    {% if bib_vol != "" %}
+      {% assign pub_volume_line = pub_volume_line | append: "vol. " | append: bib_vol %}
+    {% endif %}
+    {% if bib_num != "" %}
+      {% if bib_vol != "" %}
+        {% assign pub_volume_line = pub_volume_line | append: " (" | append: bib_num | append: ")" %}
+      {% else %}
+        {% assign pub_volume_line = pub_volume_line | append: "no. " | append: bib_num %}
+      {% endif %}
+    {% endif %}
+    {% if bib_pages != "" %}
+      {% if pub_volume_line != "" %}
+        {% assign pub_volume_line = pub_volume_line | append: ", pp. " | append: bib_pages %}
+      {% else %}
+        {% assign pub_volume_line = pub_volume_line | append: "pp. " | append: bib_pages %}
+      {% endif %}
+    {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% if entrytype_text != "" and pub_volume_line != "" %}
+      {% assign bib_vp_meta = ", " | append: pub_volume_line %}
+    {% else %}
+      {% assign bib_vp_meta = pub_volume_line %}
+    {% endif %}
+    {% assign bib_vp_trim = bib_vp_meta | strip %}
+    {% capture periodical %}
+      {{- entrytype -}}
+      {{- bib_vp_meta -}}
+      {%- if entry.year -%}
+        {%- if entrytype_text != "" or bib_vp_trim != "" -%}
+          ,
+        {%- endif -%}
+        {{- entrymonth -}}
+        {{- entryyear -}}
+      {%- endif -%}
+    {% endcapture %}
     <div class="periodical">
       {{ periodical | strip }}
     </div>
-    <div class="periodical">
-      {{ entry.note | strip }}
-    </div>
+    {% assign note_trim = entry.note | strip %}
+    {% if note_trim != "" %}
+      <div class="periodical">
+        {{ note_trim }}
+      </div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">
