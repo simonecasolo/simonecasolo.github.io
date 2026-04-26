@@ -206,9 +206,7 @@
       {{- entrytype -}}
       {{- bib_vp_meta -}}
       {%- if entry.year -%}
-        {%- if entrytype_text != "" or bib_vp_trim != "" -%}
-          ,
-        {%- endif -%}
+        {%- if entrytype_text != "" or bib_vp_trim != "" -%}{{ ", " }}{%- endif -%}
         {%- if entrymonth != "" -%}
           ({{ entrymonth }} {{ entry.year }})
         {%- else -%}
