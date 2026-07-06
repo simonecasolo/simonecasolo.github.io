@@ -3,7 +3,7 @@ layout: page
 title: Topological analysis of slug flow in offshore wells
 description: Persistent homology and ML to detect transitions toward severe slugging from offshore sensor data.
 img: assets/img/slugging_CBM.png
-importance: 3
+importance: 4
 category: work
 related_publications: true
 ---

@@ -20,7 +20,7 @@ latest_posts:
   enabled: false
 ---
 
-I specialize in applying data science and machine learning to heavy industries such as process, energy, and chemicals, where complex and messy sensor data are the norm. I am especially interested in applying **AI and advanced machine learning to industrial processes**. Also, I have been applying 
+I specialize in applying data science and machine learning to heavy industries such as process, energy, and chemicals, where complex and messy sensor data are the norm. I am especially interested in applying **AI and machine learning to industrial processes**. Also, I have been applying
 **topological and geometrical methods** for signal analysis, condition monitoring, and hybrid modeling.
 
 Below are highlights from applied work on real assets; see the [projects](/projects/) page for summaries and the [publications](/publications/) page for bibliographic details.

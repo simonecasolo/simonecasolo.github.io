@@ -2,7 +2,7 @@
 layout: page
 title: Cloud-based hybrid virtual flow metering (offshore gas field)
 description: Hybrid physics–data virtual flow metering in the cloud for water production monitoring offshore.
-importance: 2
+importance: 3
 category: work
 related_publications: true
 ---

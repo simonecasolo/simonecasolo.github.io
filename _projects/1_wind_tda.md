@@ -3,7 +3,7 @@ layout: page
 title: Testing topological data analysis for wind turbine condition monitoring
 description: Vibration-based CBM with topology-derived health indicators (Norwegian wind park data).
 img: assets/img/wind_turbine_CBM.png
-importance: 1
+importance: 2
 category: work
 related_publications: true
 ---

@@ -2,11 +2,11 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Selected applied and research projects in industrial AI, condition monitoring, and scientific machine learning.
 nav: true
 nav_order: 3
 display_categories: [work]
-horizontal: false
+horizontal: true
 ---
 
 <!-- pages/projects.md -->
