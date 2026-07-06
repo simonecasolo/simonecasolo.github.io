@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "Selected applied and research projects in industrial AI, condition monitoring, and scientific machine learning.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -409,11 +409,11 @@ ninja.data = [{
           description: "Persistent homology and ML to detect transitions toward severe slugging from offshore sensor data.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_slug_tda/";
-            },},{id: "projects-gas-surface-interaction-and-hydrogen-dynamics",
-          title: 'Gas–surface interaction and hydrogen dynamics',
-          description: "Academic work on molecular simulation of hydrogen on graphene and graphite.",
+            },},{id: "projects-bayesian-amortized-inference-for-industrial-processes",
+          title: 'Bayesian Amortized Inference for Industrial Processes',
+          description: "Simulation-based Bayesian inference for fast uncertainty-aware parameters estimation in industrial process models.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/4_hydrogen_surfaces/";
+              window.location.href = "/projects/5_bayesian_amortized_inference/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
