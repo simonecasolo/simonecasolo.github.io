@@ -394,26 +394,21 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-testing-topological-data-analysis-for-wind-turbine-condition-monitoring",
-          title: 'Testing topological data analysis for wind turbine condition monitoring',
-          description: "Vibration-based CBM with topology-derived health indicators (Norwegian wind park data).",
+          section: "News",},{id: "projects-topological-data-analysis-for-industrial-condition-monitoring",
+          title: 'Topological data analysis for industrial condition monitoring',
+          description: "Condition based monitoring for process and equipment health via topology-derived indicators.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_wind_tda/";
-            },},{id: "projects-cloud-based-hybrid-virtual-flow-metering-offshore-gas-field",
-          title: 'Cloud-based hybrid virtual flow metering (offshore gas field)',
-          description: "Hybrid physics–data virtual flow metering in the cloud for water production monitoring offshore.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2_vfm_hybrid/";
-            },},{id: "projects-topological-analysis-of-slug-flow-in-offshore-wells",
-          title: 'Topological analysis of slug flow in offshore wells',
-          description: "Persistent homology and ML to detect transitions toward severe slugging from offshore sensor data.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/3_slug_tda/";
+              window.location.href = "/projects/1_tda/";
             },},{id: "projects-bayesian-amortized-inference-for-industrial-processes",
           title: 'Bayesian Amortized Inference for Industrial Processes',
           description: "Simulation-based Bayesian inference for fast uncertainty-aware parameters estimation in industrial process models.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/5_bayesian_amortized_inference/";
+              window.location.href = "/projects/2_bayesian_amortized_inference/";
+            },},{id: "projects-cloud-based-hybrid-virtual-flow-metering-offshore-gas-field",
+          title: 'Cloud-based hybrid virtual flow metering (offshore gas field)',
+          description: "Hybrid physics–data virtual flow metering in the cloud for water production monitoring offshore.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_vfm_hybrid/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
