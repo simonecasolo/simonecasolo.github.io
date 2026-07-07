@@ -173,10 +173,10 @@ ul.task-list input[type="checkbox"] {
   }
 
   .card {
-    overflow: hidden;
+    overflow: visible;
 
     > figure {
-      height: auto;
+      height: 150px;
       padding: 0.5rem 0.5rem 0;
     }
 
@@ -189,26 +189,34 @@ ul.task-list input[type="checkbox"] {
     }
 
     > figure + .card-body {
-      padding-top: 0.75rem;
+      padding-top: 0.6rem;
+    }
+
+    .card-body {
+      padding: 0.6rem 1rem 1rem;
     }
 
     img {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .card-img {
       height: 100%;
       padding-top: 0;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .card-title {
       font-size: 1.05rem;
-      line-height: 1.3;
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
     }
 
     .card-text {
-      line-height: 1.45;
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
     }
   }
 
