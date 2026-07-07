@@ -176,12 +176,20 @@ ul.task-list input[type="checkbox"] {
     overflow: hidden;
 
     > figure {
-      padding: 0.75rem 0.75rem 0;
+      height: auto;
+      padding: 0.5rem 0.5rem 0;
     }
 
     figure {
-      height: 100%;
       margin: 0;
+    }
+
+    .row.no-gutters figure {
+      height: 100%;
+    }
+
+    > figure + .card-body {
+      padding-top: 0.75rem;
     }
 
     img {
