@@ -6,7 +6,7 @@ description: Selected applied and research projects in industrial AI, condition 
 nav: true
 nav_order: 3
 display_categories: [work]
-horizontal: true
+horizontal: false
 ---
 
 <!-- pages/projects.md -->
