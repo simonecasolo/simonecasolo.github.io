@@ -11,8 +11,6 @@ related_publications: true
 
 Condition monitoring and predictive maintenance help prevent failures and reduce downtime. In this work, [topological data analysis](https://en.wikipedia.org/wiki/Topological_data_analysis) (TDA) was combined with classical (Fourier) signal analysis for condition-based monitoring.
 
- of wind turbines.
-
 In the first study, [TDA](https://en.wikipedia.org/wiki/Topological_data_analysis) and [persistent homology](https://en.wikipedia.org/wiki/Persistent_homology) were used for signal analysis on offshore sensors and condition monitoring of multiphase flow. The goal was to identify and classify the transition from regular to severe slugging flow using machine learning.
 
 Published in [Digital Chemical Engineering, Vol. 4, 100045 (2022)](https://www.sciencedirect.com/science/article/pii/S2772508122000357). A **corrected** PDF (formulae typos fixed) is available [here](/assets/pdf/TDA_for_Slugs_Article_fixed.pdf).
