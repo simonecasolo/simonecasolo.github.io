@@ -1,17 +1,17 @@
 metadata:
-  last_updated: '2026-07-22'
+  last_updated: '2026-08-03'
 papers:
   l9E9Zs4AAAAJ:0EnyYjriUFMC:
     citations: 0
     title: Electronic structure of subsititutional defects superlattices in graphene
     year: '2010'
   l9E9Zs4AAAAJ:2osOgNQ5qMEC:
-    citations: 358
+    citations: 362
     title: 'Atomic-scale characterization of nitrogen-doped graphite: Effects of dopant nitrogen on the local electronic structure of the surrounding carbon atoms'
     year: '2012'
   l9E9Zs4AAAAJ:3fE2CSJIrl8C:
     citations: 3
-    title: The Effect of Atomic-Scale Defects on Graphene Electronic Structure
+    title: The effect of atomic-scale defects on graphene electronic structure
     year: '2012'
   l9E9Zs4AAAAJ:4n0clTBhZ78C:
     citations: 0
@@ -26,11 +26,11 @@ papers:
     title: Understanding hydrogen atoms adsorption on graphite (0001)
     year: '2008'
   l9E9Zs4AAAAJ:9yKSN-GCB0IC:
-    citations: 112
+    citations: 111
     title: Band engineering in graphene with superlattices of substitutional defects
     year: '2011'
   l9E9Zs4AAAAJ:IjCSPb-OGe4C:
-    citations: 26
+    citations: 27
     title: Role of the self-interaction error in studying chemisorption on graphene from first-principles
     year: '2010'
   l9E9Zs4AAAAJ:KlAtU1dfN6UC:
@@ -38,7 +38,7 @@ papers:
     title: On the Complex Structural Picture of the Ionic Conductor Sr6Ta2O11
     year: '2013'
   l9E9Zs4AAAAJ:LkGwnXOMwfcC:
-    citations: 47
+    citations: 46
     title: Structure and stability of hydrogenated carbon atom vacancies in graphene
     year: '2014'
   l9E9Zs4AAAAJ:MXK_kJrjxJIC:
@@ -62,7 +62,7 @@ papers:
     title: Quantum Study of Eley-Rideal formation of hydrogen on graphite (0001) surface in the cold energy regime
     year: '2006'
   l9E9Zs4AAAAJ:SpPTWFSNUtQC:
-    citations: 4
+    citations: 3
     title: Testing Topological Data Analysis for Condition Monitoring of Wind Turbines
     year: '2024'
   l9E9Zs4AAAAJ:Tyk-4Ss8FVUC:
@@ -74,7 +74,7 @@ papers:
     title: Hydrogen recombination and dimer formation on graphite from ab initio molecular dynamics simulations
     year: '2016'
   l9E9Zs4AAAAJ:UeHWp8X0CEIC:
-    citations: 51
+    citations: 50
     title: A few simple rules governing hydrogenation of graphene dots
     year: '2011'
   l9E9Zs4AAAAJ:UebtZRa9Y70C:
@@ -110,7 +110,7 @@ papers:
     title: NANO-TECHNOLOGY, THEORETICAL CHEMISTRY AND COMPUTATIONAL CHEMISTRY
     year: '2010'
   l9E9Zs4AAAAJ:_kc_bZDykSQC:
-    citations: 35
+    citations: 36
     title: "Inherently Chiral Spider\u2010Like Oligothiophenes"
     year: '2016'
   l9E9Zs4AAAAJ:cNe27ouKFcQC:
@@ -118,11 +118,11 @@ papers:
     title: 'DFT based screening of ternary alkali-transition metal borohydrides: a computational materials design project'
     year: '2009'
   l9E9Zs4AAAAJ:d1gkVwhDpl0C:
-    citations: 87
+    citations: 88
     title: 'Density functional theory based screening of ternary alkali-transition metal borohydrides: A computational material design project'
     year: '2009'
   l9E9Zs4AAAAJ:eQOLeE2rZwMC:
-    citations: 34
+    citations: 32
     title: 'Oxygen Nonstoichiometry in (Ca2CoO3)0.62(CoO2): A Combined Experimental and Computational Study'
     year: '2014'
   l9E9Zs4AAAAJ:g_UdREhPGEoC:
@@ -142,7 +142,7 @@ papers:
     title: Hydrogen recombination on graphitic surfaces
     year: '2013'
   l9E9Zs4AAAAJ:qjMakFHDy7sC:
-    citations: 31
+    citations: 32
     title: "Quantum Dynamics of the Eley\u2212 Rideal Hydrogen Formation Reaction on Graphite at Typical Interstellar Cloud Conditions"
     year: '2009'
   l9E9Zs4AAAAJ:qsWQJNntlusC:
@@ -162,7 +162,7 @@ papers:
     title: Cloud-based virtual flow metering system powered by a hybrid physics-data approach for water production monitoring in an offshore gas field
     year: '2023'
   l9E9Zs4AAAAJ:u-x6o8ySG0sC:
-    citations: 133
+    citations: 132
     title: Symmetry-induced band-gap opening in graphene superlattices
     year: '2010'
   l9E9Zs4AAAAJ:u5HHmVD_uO8C:
@@ -178,6 +178,6 @@ papers:
     title: Adsorption, clustering and reaction of hydrogen atoms on graphene
     year: '2009'
   l9E9Zs4AAAAJ:zYLM7Y9cAGgC:
-    citations: 22
+    citations: 21
     title: "Theoretical analysis of oxygen vacancies in layered sodium cobaltate, NaxCoO2\u2212\u03B4"
     year: '2012'
