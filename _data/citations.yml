@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-08-12'
+  last_updated: '2026-08-31'
 papers:
   l9E9Zs4AAAAJ:0EnyYjriUFMC:
     citations: 0
     title: Electronic structure of subsititutional defects superlattices in graphene
     year: '2010'
   l9E9Zs4AAAAJ:2osOgNQ5qMEC:
-    citations: 363
+    citations: 368
     title: 'Atomic-scale characterization of nitrogen-doped graphite: Effects of dopant nitrogen on the local electronic structure of the surrounding carbon atoms'
     year: '2012'
   l9E9Zs4AAAAJ:3fE2CSJIrl8C:
@@ -94,7 +94,7 @@ papers:
     title: 'Simulating chemical processes from scratch: classical and quantum molecular dynamics classical and quantum molecular dynamics'
     year: Unknown Year
   l9E9Zs4AAAAJ:Y0pCki6q_DkC:
-    citations: 41
+    citations: 43
     title: Surface Temperature Effects on Dissociative Chemisorption of H2 on Cu(100)
     year: '2013'
   l9E9Zs4AAAAJ:YOwf2qJgpHMC:
@@ -158,7 +158,7 @@ papers:
     title: NANOTECNOLOGIE, CHIMICA TEORICA E CHIMICA COMPUTAZIONALE
     year: '2010'
   l9E9Zs4AAAAJ:txeM2kYbVNMC:
-    citations: 14
+    citations: 15
     title: Cloud-based virtual flow metering system powered by a hybrid physics-data approach for water production monitoring in an offshore gas field
     year: '2023'
   l9E9Zs4AAAAJ:u-x6o8ySG0sC:
@@ -166,7 +166,7 @@ papers:
     title: Symmetry-induced band-gap opening in graphene superlattices
     year: '2010'
   l9E9Zs4AAAAJ:u5HHmVD_uO8C:
-    citations: 447
+    citations: 448
     title: Understanding adsorption of hydrogen atoms on graphene
     year: '2009'
   l9E9Zs4AAAAJ:ufrVoPGSRksC:
