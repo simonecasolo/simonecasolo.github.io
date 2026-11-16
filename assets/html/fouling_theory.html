@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One fouling curve, four mechanisms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one reading column (max 46rem); each claim is a short text block followed by a
+   full-width figure panel with its controls on top. Palette follows the paper's figures. */
+:root{
+  --bg:#f6f8fa; --panel:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --rule:#dfe3e8; --grid:#e9ecef;
+  --accent:#0072B2; --accent-soft:rgba(0,114,178,.14); --ref:#8a8f96; --mark:#D55E00;
+  --display:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101418; --panel:#171c22; --ink:#eef1f4; --ink2:#a4acb6; --rule:#2a323b; --grid:#232a32;
+    --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101418; --panel:#171c22; --ink:#eef1f4; --ink2:#a4acb6; --rule:#2a323b; --grid:#232a32;
+  --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+main{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;display:flex;flex-direction:column;gap:2.25rem}
+h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5.2vw,2.9rem);line-height:1.08}
+h2{font-size:1.5rem;line-height:1.2}
+p{margin:0;max-width:65ch}
+.kicker{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.lede{font-size:1.15rem;color:var(--ink)}
+.muted{color:var(--ink2)}
+header,section{display:flex;flex-direction:column;gap:.9rem}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1rem;display:flex;flex-direction:column;gap:.85rem}
+.controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
+.seg{display:flex;flex-wrap:wrap;gap:.35rem}
+.seg button,.btn{font:inherit;font-size:.88rem;font-weight:500;padding:.42rem .75rem;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#06202e}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#06202e}}
+.btn{border-color:var(--ink2)}
+button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;line-height:1.35;padding:.35rem .5rem;border-radius:6px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.82rem;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.sw{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink)}
+.sw.band{height:10px;border:0;background:var(--accent-soft)}
+.sw.path{border-color:var(--accent)}
+.sw.ref{border-top:2px dashed var(--ref)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.tile{border:1px solid var(--rule);border-radius:8px;padding:.55rem .6rem;display:flex;flex-direction:column;gap:.1rem}
+.tile[data-on="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.tile b{font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums}
+.tile small{font-size:.74rem;color:var(--ink2);line-height:1.25}
+.sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+.sliders label{display:flex;flex-direction:column;gap:.25rem;font-size:.85rem;color:var(--ink2)}
+.sliders output{font-size:1.05rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.result{display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline;border-top:1px solid var(--rule);padding-top:.8rem}
+.result .big{font-family:var(--display);font-size:2.1rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.result div{display:flex;flex-direction:column;gap:.15rem;font-size:.82rem;color:var(--ink2)}
+.result div b{font-size:1.05rem;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.note{font-size:.82rem;color:var(--ink2)}
+details{font-size:.9rem;color:var(--ink2)}
+summary{cursor:pointer;font-weight:500;color:var(--ink)}
+details p{margin-top:.5rem}
+.math{font-family:var(--display);font-style:italic;color:var(--ink)}
+.cta{border-top:1px solid var(--rule);padding-top:1.5rem}
+.cta a{display:inline-block;font-weight:600;color:#fff;background:var(--accent);padding:.7rem 1.2rem;border-radius:8px;text-decoration:none;align-self:flex-start}
+:root[data-theme="dark"] .cta a{color:#06202e}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta a{color:#06202e}}
+ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem;max-width:65ch}
+svg text{font-family:var(--body);fill:var(--ink2);font-size:12px}
+svg .axis{stroke:var(--ink2);stroke-width:.8;fill:none}
+svg .grid{stroke:var(--grid);stroke-width:1}
+@media (max-width:560px){
+  body{font-size:16px}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .sliders{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <span class="kicker">Stochastic fouling theory</span>
+  <h1>One fouling curve, four mechanisms</h1>
+  <p class="lede">An asymptotic fouling curve is usually read as the signature of shear removal. It is not. Erosion, detachment, sloughing and surface saturation all draw exactly the same mean curve. What tells them apart is the scatter around it.</p>
+</header>
+
+<section aria-labelledby="h-mech">
+  <h2 id="h-mech">Same curve, different mechanism</h2>
+  <p>Pick a mechanism. The black line, the mean fouling resistance, does not move. The individual records and the band they fill do.</p>
+  <div class="panel">
+    <div class="controls">
+      <div class="seg" id="mechSeg" role="group" aria-label="Mechanism">
+        <button type="button" data-m="cont" aria-pressed="true">Continuous erosion</button>
+        <button type="button" data-m="elem" aria-pressed="false">Per-element detachment</button>
+        <button type="button" data-m="slough" aria-pressed="false">Sloughing</button>
+        <button type="button" data-m="block" aria-pressed="false">Surface saturation</button>
+      </div>
+      <button type="button" class="btn" id="redraw">Draw new records</button>
+    </div>
+    <div class="chart" id="c1"><div class="tip" id="t1"></div></div>
+    <div class="legend">
+      <span><i class="sw"></i>mean, identical for all four</span>
+      <span><i class="sw band"></i>mean ± 2 standard deviations</span>
+      <span><i class="sw path"></i>three simulated records</span>
+    </div>
+    <div class="tiles" id="tiles"></div>
+    <p class="note" id="mechNote"></p>
+  </div>
+  <p>Fitting the curve returns a plateau and a time constant, and nothing else. A Kern–Seaton fit is not evidence of shear removal.</p>
+  <details>
+    <summary>The maths</summary>
+    <p>With deposition at mean rate <span class="math">m</span> and removal rate <span class="math">ψ</span>, every mechanism here gives <span class="math">E[R(t)] = R<sub>∞</sub>(1 − e<sup>−ψt</sup>)</span>, with <span class="math">R<sub>∞</sub> = m/ψ</span>. The plateau variance differs: <span class="math">s²/2ψ</span> for continuous erosion, <span class="math">s²/ψ</span> for per-element detachment, <span class="math">s²/((2−η)ψ) + ηR<sub>∞</sub>²/(2−η)</span> for sloughing of a fraction <span class="math">η</span>, and zero for saturation, whose variance <span class="math">ℓR<sub>∞</sub>θ(1−θ)</span> peaks at half coverage. Simulated with <span class="math">m = 1</span>, <span class="math">c = 1</span>, <span class="math">ψ = 0.2</span>, <span class="math">η = 0.5</span>, as in Fig. 3 of the paper.</p>
+  </details>
+</section>
+
+<section aria-labelledby="h-noise">
+  <h2 id="h-noise">Can you measure the deposition law?</h2>
+  <p>Deposition laws with the same mean and variance differ only in the skewness of their increments. Measurement noise hides it at short windows, and averaging erases it at long ones. Set your instrument and see how long a record you would need.</p>
+  <div class="panel">
+    <div class="sliders">
+      <label for="eps">Conductance error <output id="epsOut" for="eps"></output>
+        <input type="range" id="eps" min="0.2" max="5" step="0.1" value="1"></label>
+      <label for="zeta">Fouling per sampling period <output id="zetaOut" for="zeta"></output>
+        <input type="range" id="zeta" min="0.1" max="2" step="0.1" value="0.4"></label>
+      <label for="cv">Burstiness of deposition, c <output id="cvOut" for="cv"></output>
+        <input type="range" id="cv" min="0.1" max="3" step="0.1" value="2"></label>
+    </div>
+    <div class="chart" id="c2"><div class="tip" id="t2"></div></div>
+    <div class="legend">
+      <span><i class="sw path"></i>skewness left in your record</span>
+      <span><i class="sw ref"></i>noise-free record</span>
+    </div>
+    <div class="result">
+      <div><span>Record needed to tell Gamma from inverse Gaussian</span><span class="big" id="yrs"></span></div>
+      <div><span>Noise-to-signal ratio ρ</span><b id="rho"></b></div>
+      <div><span>Best window keeps</span><b id="keep"></b></div>
+    </div>
+    <p class="note" id="noiseNote"></p>
+  </div>
+  <p>The record needed grows as the fourth power of the measurement noise. Improving the instrument helps far more than waiting.</p>
+  <details>
+    <summary>The maths</summary>
+    <p>With relative conductance error <span class="math">ε</span> and relative conductance change per period <span class="math">ζ</span>, the noise-to-signal ratio is <span class="math">ρ = (2/c²)(ε/ζ)²</span>. Over a window of <span class="math">k</span> periods the skewness is reduced to <span class="math">k/(k+ρ)<sup>3/2</sup></span> of its one-period value, which peaks at <span class="math">k = 2ρ</span>. Separating the two laws at two standard errors needs <span class="math">N ≈ 324 ρ²/c² = 1296 (ε/ζ)⁴/c⁶</span> sampling periods, here of three days each.</p>
+  </details>
+</section>
+
+<section aria-labelledby="h-take">
+  <h2 id="h-take">What this means in practice</h2>
+  <ul>
+    <li>A fitted fouling curve gives a net rate and a relaxation time. It does not identify the mechanism.</li>
+    <li>To identify the removal mechanism, watch the scatter on the plateau. Sloughing keeps a large variance even when deposition is smooth.</li>
+    <li>The deposition law is out of reach for a thermally reconstructed resistance at realistic accuracy.</li>
+  </ul>
+  <div class="cta" style="display:flex;flex-direction:column;gap:.6rem">
+    <a href="#paper" id="paper">Read the paper</a>
+    <span class="note">Preview: the link to the preprint is added once it is posted. S. Casolo, <em>Classical fouling laws as first-moment identities of additive stochastic deposition</em>.</span>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+"use strict";
+var NS="http://www.w3.org/2000/svg";
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function txt(p,x,y,s,a){var t=el("text",Object.assign({x:x,y:y},a||{}),p);t.textContent=s;return t;}
+function expo(mean){return -mean*Math.log(1-Math.random());}
+
+/* ---------- Widget 1: four mechanisms, one mean ---------- */
+var m=1,c=1,psi=0.2,eta=0.5,tau0=1,T=40,dt=0.05;
+var s2=c*c*m*m*tau0, ell=s2/m, Rinf=m/psi, rs=psi/eta, YMAX=14;
+var nT=Math.round(T/dt)+1, tt=[];for(var i=0;i<nT;i++)tt.push(i*dt);
+var meanArr=tt.map(function(t){return Rinf*(1-Math.exp(-psi*t));});
+var varArr={
+  cont:tt.map(function(t){return s2/(2*psi)*(1-Math.exp(-2*psi*t));}),
+  elem:tt.map(function(t){return s2/psi*(1-Math.exp(-psi*t));}),
+  block:tt.map(function(t){var th=1-Math.exp(-psi*t);return ell*Rinf*th*(1-th);}),
+  slough:(function(){var out=[],mu2=0,h=dt/20,t=0;for(var i=0;i<nT;i++){var mu1=Rinf*(1-Math.exp(-psi*tt[i]));out.push(Math.max(mu2-mu1*mu1,0));
+    for(var j=0;j<20;j++){var a=Rinf*(1-Math.exp(-psi*t));mu2+=h*(2*m*a+s2-rs*eta*(2-eta)*mu2);t+=h;}}return out;})()
+};
+var plateau={cont:s2/(2*psi),elem:s2/psi,slough:s2/((2-eta)*psi)+eta*Rinf*Rinf/(2-eta),block:0};
+var names={cont:"Continuous erosion",elem:"Per-element detachment",slough:"Sloughing",block:"Surface saturation"};
+var notes={
+  cont:"Shear wears every deposit down steadily, at a rate proportional to what is there.",
+  elem:"Each deposited piece stays intact, then leaves all at once. Same mean, twice the plateau variance.",
+  slough:"At random times half of the layer falls off. The sawtooth survives even if deposition were perfectly smooth.",
+  block:"Nothing is removed: the surface fills up and attachment stops. The scatter peaks at half coverage and vanishes at saturation."
+};
+function events(){ // compound Poisson deposition: rate 2/t_c, exponential sizes of mean ell/2
+  var ev=[],t=expo(ell/m/2);while(t<T){ev.push([t,expo(ell/2)]);t+=expo(ell/m/2);}return ev;}
+function simulate(mech){
+  var R=new Array(nT),i,j,ev;
+  if(mech==="cont"){ev=events();j=0;var r=0,d=Math.exp(-psi*dt);R[0]=0;
+    for(i=1;i<nT;i++){r*=d;while(j<ev.length&&ev[j][0]<=tt[i]){r+=ev[j][1]*Math.exp(-psi*(tt[i]-ev[j][0]));j++;}R[i]=r;}}
+  else if(mech==="elem"){ev=events().map(function(e){return [e[0],e[1],e[0]+expo(1/psi)];});
+    for(i=0;i<nT;i++){var s=0;for(j=0;j<ev.length;j++){if(ev[j][0]>tt[i])break;if(ev[j][2]>tt[i])s+=ev[j][1];}R[i]=s;}}
+  else if(mech==="slough"){ev=events().map(function(e){return [e[0],e[1]];});var t=expo(1/rs);while(t<T){ev.push([t,-1]);t+=expo(1/rs);}
+    ev.sort(function(a,b){return a[0]-b[0];});j=0;var q=0;
+    for(i=0;i<nT;i++){while(j<ev.length&&ev[j][0]<=tt[i]){if(ev[j][1]<0)q*=(1-eta);else q+=ev[j][1];j++;}R[i]=q;}}
+  else {var n=Math.round(Rinf/ell),fill=[];for(j=0;j<n;j++)fill.push(expo(1/psi));
+    for(i=0;i<nT;i++){var k=0;for(j=0;j<n;j++)if(fill[j]<=tt[i])k++;R[i]=k*ell;}}
+  return R;
+}
+var W=720,H=360,ML=46,MR=14,MT=12,MB=40;
+function X1(t){return ML+(W-ML-MR)*t/T;} function Y1(v){return MT+(H-MT-MB)*(1-Math.min(v,YMAX*1.02)/YMAX);}
+var svg1=el("svg",{viewBox:"0 0 "+W+" "+H,role:"img","aria-label":"Fouling resistance against time for the selected mechanism"},document.getElementById("c1"));
+var g1=el("g",{},svg1), dyn1=el("g",{},svg1), hov1=el("g",{},svg1);
+(function axes(){
+  for(var v=0;v<=YMAX;v+=2){el("line",{class:"grid",x1:ML,x2:W-MR,y1:Y1(v),y2:Y1(v)},g1);txt(g1,ML-8,Y1(v)+4,String(v),{"text-anchor":"end"});}
+  for(var t=0;t<=T;t+=10)txt(g1,X1(t),H-MB+18,String(t),{"text-anchor":"middle"});
+  el("line",{class:"axis",x1:ML,x2:W-MR,y1:Y1(0),y2:Y1(0)},g1);
+  txt(g1,(ML+W-MR)/2,H-4,"time (sampling periods)",{"text-anchor":"middle"});
+  var yl=txt(g1,0,0,"fouling resistance R",{"text-anchor":"middle",transform:"translate(13,"+((MT+H-MB)/2)+") rotate(-90)"});
+})();
+var mech="cont",paths=[];
+function line(arr){var d="";for(var i=0;i<nT;i+=2)d+=(i?"L":"M")+X1(tt[i]).toFixed(1)+" "+Y1(arr[i]).toFixed(1);return d;}
+function draw1(){
+  while(dyn1.firstChild)dyn1.removeChild(dyn1.firstChild);
+  var va=varArr[mech],up="",lo="",i;
+  for(i=0;i<nT;i+=4){var sd=2*Math.sqrt(va[i]);up+=(i?"L":"M")+X1(tt[i]).toFixed(1)+" "+Y1(meanArr[i]+sd).toFixed(1);}
+  for(i=nT-1;i>=0;i-=4){var sd2=2*Math.sqrt(va[i]);lo+="L"+X1(tt[i]).toFixed(1)+" "+Y1(Math.max(meanArr[i]-sd2,0)).toFixed(1);}
+  el("path",{d:up+lo+"Z",fill:"var(--accent-soft)",stroke:"none"},dyn1);
+  paths.forEach(function(p,k){el("path",{d:line(p),fill:"none",stroke:"var(--accent)","stroke-width":k?1.1:1.8,opacity:k?0.55:1,"stroke-linejoin":"round"},dyn1);});
+  el("path",{d:line(meanArr),fill:"none",stroke:"var(--ink)","stroke-width":2},dyn1);
+  txt(dyn1,X1(T)-4,Y1(Rinf)-10,"mean → R∞ = "+Rinf,{"text-anchor":"end",style:"fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--panel);stroke-width:4px;stroke-linejoin:round"});
+  var tiles=document.getElementById("tiles");tiles.innerHTML="";
+  ["cont","elem","slough","block"].forEach(function(k){var d=document.createElement("div");d.className="tile";d.dataset.on=String(k===mech);
+    d.innerHTML="<b>"+plateau[k].toFixed(1)+"</b><small>plateau variance<br>"+names[k]+"</small>";tiles.appendChild(d);});
+  document.getElementById("mechNote").textContent=notes[mech]+" Plateau mean: "+Rinf.toFixed(1)+" in every case.";
+}
+function resample(){paths=[simulate(mech),simulate(mech),simulate(mech)];draw1();}
+document.getElementById("mechSeg").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  mech=b.dataset.m;Array.prototype.forEach.call(this.children,function(x){x.setAttribute("aria-pressed",String(x===b));});resample();});
+document.getElementById("redraw").addEventListener("click",resample);
+function hover(svg,box,tip,hov,fn){
+  function move(ev){var r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width;var o=fn(px);while(hov.firstChild)hov.removeChild(hov.firstChild);
+    if(!o){tip.style.opacity=0;return;}
+    el("line",{x1:o.x,x2:o.x,y1:MT,y2:o.y0,stroke:"var(--ink2)","stroke-width":.8,"stroke-dasharray":"3 3"},hov);
+    el("circle",{cx:o.x,cy:o.y,r:4,fill:"var(--panel)",stroke:"var(--ink)","stroke-width":2},hov);
+    tip.innerHTML=o.html;tip.style.left=(o.x*r.width/W)+"px";tip.style.top=(o.y*r.height/o.h)+"px";tip.style.opacity=1;}
+  svg.addEventListener("pointermove",move);svg.addEventListener("pointerdown",move);
+  svg.addEventListener("pointerleave",function(){tip.style.opacity=0;while(hov.firstChild)hov.removeChild(hov.firstChild);});
+}
+hover(svg1,null,document.getElementById("t1"),hov1,function(px){
+  var t=(px-ML)/(W-ML-MR)*T;if(t<0||t>T)return null;var i=Math.round(t/dt),sd=Math.sqrt(varArr[mech][i]);
+  return {x:X1(tt[i]),y:Y1(meanArr[i]),y0:Y1(0),h:H,html:"t = "+tt[i].toFixed(1)+"<br>mean "+meanArr[i].toFixed(2)+"<br>std. dev. "+sd.toFixed(2)};});
+resample();
+
+/* ---------- Widget 2: noise, window and record length ---------- */
+var H2=300,KMIN=1,KMAX=1e5,FMIN=1e-3,FMAX=1;
+function X2(k){return ML+(W-ML-MR)*Math.log10(k/KMIN)/Math.log10(KMAX/KMIN);}
+function Y2(f){f=Math.max(f,FMIN);return MT+(H2-MT-MB)*(1-Math.log10(f/FMIN)/Math.log10(FMAX/FMIN));}
+var svg2=el("svg",{viewBox:"0 0 "+W+" "+H2,role:"img","aria-label":"Fraction of the skewness retained against the averaging window"},document.getElementById("c2"));
+var g2=el("g",{},svg2),dyn2=el("g",{},svg2),hov2=el("g",{},svg2);
+(function axes(){
+  [1e-3,1e-2,1e-1,1].forEach(function(f){el("line",{class:"grid",x1:ML,x2:W-MR,y1:Y2(f),y2:Y2(f)},g2);txt(g2,ML-8,Y2(f)+4,(f*100)+"%",{"text-anchor":"end"});});
+  [1,10,100,1e3,1e4,1e5].forEach(function(k){txt(g2,X2(k),H2-MB+18,k>=1e3?"10"+({1000:"³",10000:"⁴",100000:"⁵"})[k]:String(k),{"text-anchor":"middle"});});
+  el("line",{class:"axis",x1:ML,x2:W-MR,y1:Y2(FMIN),y2:Y2(FMIN)},g2);
+  txt(g2,(ML+W-MR)/2,H2-4,"averaging window k (sampling periods)",{"text-anchor":"middle"});
+  txt(g2,0,0,"skewness retained",{"text-anchor":"middle",transform:"translate(13,"+((MT+H2-MB)/2)+") rotate(-90)"});
+})();
+var rho=1;
+function f2(k){return k/Math.pow(k+rho,1.5);}
+function fmtYears(y){if(y<1)return (y*12<1?"under a month":Math.round(y*12)+" months");if(y<100)return (y<10?y.toFixed(1):Math.round(y))+" years";
+  var e=Math.floor(Math.log10(y)),mant=Math.round(y/Math.pow(10,e));if(mant===10){mant=1;e++;}
+  var sup="⁰¹²³⁴⁵⁶⁷⁸⁹",es=String(e).split("").map(function(d){return sup[+d];}).join("");return (mant===1?"":mant+" × ")+"10"+es+" years";}
+function draw2(){
+  var eps=+document.getElementById("eps").value,zeta=+document.getElementById("zeta").value,cv=+document.getElementById("cv").value;
+  document.getElementById("epsOut").textContent=eps.toFixed(1)+" %";document.getElementById("zetaOut").textContent=zeta.toFixed(1)+" %";document.getElementById("cvOut").textContent=cv.toFixed(1);
+  var r=eps/zeta;rho=2/(cv*cv)*r*r;var N=1296*Math.pow(r,4)/Math.pow(cv,6),years=N*3/365.25;
+  while(dyn2.firstChild)dyn2.removeChild(dyn2.firstChild);
+  var d="",dr="",n=160;for(var i=0;i<=n;i++){var k=KMIN*Math.pow(KMAX/KMIN,i/n);d+=(i?"L":"M")+X2(k).toFixed(1)+" "+Y2(f2(k)).toFixed(1);dr+=(i?"L":"M")+X2(k).toFixed(1)+" "+Y2(1/Math.sqrt(k)).toFixed(1);}
+  el("path",{d:dr,fill:"none",stroke:"var(--ref)","stroke-width":2,"stroke-dasharray":"6 5"},dyn2);
+  el("path",{d:d,fill:"none",stroke:"var(--accent)","stroke-width":2.2},dyn2);
+  var ks=Math.min(Math.max(2*rho,KMIN),KMAX),peak=f2(ks);
+  el("circle",{cx:X2(ks),cy:Y2(peak),r:5,fill:"var(--mark)",stroke:"var(--panel)","stroke-width":2},dyn2);
+  var right=X2(ks)<W-190;txt(dyn2,X2(ks)+(right?10:-10),Y2(peak)-14,"best window",{"text-anchor":right?"start":"end",style:"fill:var(--ink);font-weight:600;paint-order:stroke;stroke:var(--panel);stroke-width:4px;stroke-linejoin:round"});
+  document.getElementById("yrs").textContent=fmtYears(years);
+  document.getElementById("rho").textContent=rho<10?rho.toFixed(1):Math.round(rho).toLocaleString("en");
+  document.getElementById("keep").textContent=(peak*100<1?(peak*100).toFixed(2):(peak*100).toFixed(1))+" % of the skewness";
+  var note="Record length in years of three-day samples; best window is "+(2*rho<1?"one period":Math.round(2*rho).toLocaleString("en")+" periods")+".";
+  if(rho<cv*cv)note+=" At this low noise (ρ below c²) the estimate is indicative only.";
+  document.getElementById("noiseNote").textContent=note;
+}
+["eps","zeta","cv"].forEach(function(id){document.getElementById(id).addEventListener("input",draw2);});
+hover(svg2,null,document.getElementById("t2"),hov2,function(px){
+  var u=(px-ML)/(W-ML-MR);if(u<0||u>1)return null;var k=KMIN*Math.pow(KMAX/KMIN,u),f=f2(k);
+  return {x:X2(k),y:Y2(f),y0:Y2(FMIN),h:H2,html:"window "+(k<10?k.toFixed(1):Math.round(k).toLocaleString("en"))+" periods<br>retains "+(f*100<1?(f*100).toFixed(2):(f*100).toFixed(1))+" %"};});
+draw2();
+})();
+</script>
+</body>
+</html>
