@@ -1,140 +1,111 @@
 ---
-layout: null
+layout: page
 title: Heat Exchangers Fouling Theory
 description: A stochastic fouling theory for heat exchangers - why one asymptotic fouling curve can hide different removal mechanisms.
 img: assets/img/fouling_theory.png
 importance: 0
 category: work
 related_publications: false
-permalink: /projects/0_fouling_theory/
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>One fouling curve, four mechanisms</title>
-<meta name="description" content="Interactive explainer: why linear and Kern–Seaton fouling curves cannot identify the fouling mechanism, and what the scatter around them can. Companion page to arXiv:2611.22808.">
-<meta name="author" content="Simone Casolo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="One fouling curve, four mechanisms">
-<meta property="og:description" content="Why linear and Kern–Seaton fouling curves cannot identify the fouling mechanism, and what the scatter around them can. Interactive companion to arXiv:2611.22808.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: one reading column (max 46rem); each claim is a short text block followed by a
-   full-width figure panel with its controls on top. Palette follows the paper's figures. */
-:root{
-  --bg:#f6f8fa; --panel:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --rule:#dfe3e8; --grid:#e9ecef;
+/* Scoped to #fouling so nothing leaks into the site theme. Colours follow the site's light/dark toggle. */
+#fouling{
+  --panel:var(--global-card-bg-color,#fff); --ink:var(--global-text-color,#000); --ink2:#52514e; --rule:#dfe3e8; --grid:#e9ecef;
   --accent:#0072B2; --accent-soft:rgba(0,114,178,.14); --ref:#8a8f96; --mark:#D55E00;
-  --display:"Roboto",sans-serif;
-  --body:"Roboto",sans-serif;
+  --bg:var(--global-bg-color,#fff);
+  --display:"Roboto",sans-serif; --body:"Roboto",sans-serif;
+  color:var(--ink); font-family:var(--body); line-height:1.5; font-weight:300;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#101418; --panel:#171c22; --ink:#eef1f4; --ink2:#a4acb6; --rule:#2a323b; --grid:#232a32;
-    --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#101418; --panel:#171c22; --ink:#eef1f4; --ink2:#a4acb6; --rule:#2a323b; --grid:#232a32;
+#fouling *,#fouling *::before,#fouling *::after{box-sizing:border-box}
+#fouling :is(p,li,span,em,strong,div,h2,h3){color:inherit}
+:root[data-theme="dark"] #fouling{
+  --panel:#212529; --ink:#e8e8e8; --ink2:#a4acb6; --rule:#2a323b; --grid:#232a32;
   --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
-  color-scheme:dark;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-/* Typography matches the site (mdbootstrap + al-folio): Roboto 300, 1rem, line-height 1.5; h1 2.5rem, h2 2rem. */
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;font-size:1rem;line-height:1.5}
-main{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;display:flex;flex-direction:column;gap:2.25rem}
-h1,h2{font-family:var(--display);font-weight:300;text-wrap:balance;margin:0;line-height:1.2}
-h1{font-size:2.5rem}
-h2{font-size:2rem}
-p{margin:0;max-width:65ch}
-.back{font-size:.85rem;color:var(--ink2);text-decoration:none;align-self:flex-start}
-.back:hover{color:var(--accent)}
-.kicker{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-.lede{font-size:1.25rem;color:var(--ink)}
-.muted{color:var(--ink2)}
-header,section{display:flex;flex-direction:column;gap:.9rem}
-.panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1rem;display:flex;flex-direction:column;gap:.85rem}
-.controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
-.seg{display:flex;flex-wrap:wrap;gap:.35rem}
-.seg button,.btn{font:inherit;font-size:.88rem;font-weight:500;padding:.42rem .75rem;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
-:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#06202e}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#06202e}}
-.btn{border-color:var(--ink2)}
-button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.chart{position:relative;width:100%}
-.chart svg{display:block;width:100%;height:auto;overflow:visible}
-.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;line-height:1.35;padding:.35rem .5rem;border-radius:6px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;font-variant-numeric:tabular-nums}
-.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.82rem;color:var(--ink2)}
-.legend span{display:inline-flex;align-items:center;gap:.4rem}
-.sw{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink)}
-.sw.band{height:10px;border:0;background:var(--accent-soft)}
-.sw.path{border-color:var(--accent)}
-.sw.ref{border-top:2px dashed var(--ref)}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
-.tiles.three{grid-template-columns:repeat(3,1fr)}
-.tile{border:1px solid var(--rule);border-radius:8px;padding:.55rem .6rem;display:flex;flex-direction:column;gap:.1rem}
-.tile[data-on="true"]{border-color:var(--accent);background:var(--accent-soft)}
-.tile b{font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums}
-.tile small{font-size:.74rem;color:var(--ink2);line-height:1.25}
-.tile .bar{display:block;height:5px;border-radius:3px;background:var(--ref);margin-top:.35rem;min-width:3px}
-.tile[data-on="true"] .bar{background:var(--accent)}
-.takeaway{font-weight:600;color:var(--ink);margin:0}
-.sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
-.sliders label{display:flex;flex-direction:column;gap:.25rem;font-size:.85rem;color:var(--ink2)}
-.sliders output{font-size:1.05rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
-input[type=range]{width:100%;accent-color:var(--accent)}
-.result{display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline;border-top:1px solid var(--rule);padding-top:.8rem}
-.result .big{font-family:var(--display);font-size:2rem;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
-.result div{display:flex;flex-direction:column;gap:.15rem;font-size:.82rem;color:var(--ink2)}
-.result div b{font-size:1.05rem;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
-.note{font-size:.82rem;color:var(--ink2)}
-details{font-size:.9rem;color:var(--ink2)}
-summary{cursor:pointer;font-weight:400;color:var(--ink)}
-details p{margin-top:.5rem}
-details h3{font-size:1rem;font-weight:500;color:var(--ink);margin:1rem 0 0}
-details .eq{font-size:1rem;margin-top:.5rem}
-.math{font-family:var(--display);color:var(--ink)}
-.cta{border-top:1px solid var(--rule);padding-top:1.5rem}
-.cta a{display:inline-block;font-weight:600;color:#fff;background:var(--accent);padding:.7rem 1.2rem;border-radius:8px;text-decoration:none;align-self:flex-start}
-:root[data-theme="dark"] .cta a{color:#06202e}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta a{color:#06202e}}
-ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem;max-width:65ch}
-figure{margin:0;display:flex;flex-direction:column;gap:.6rem}
-figure svg{display:block;width:100%;height:auto}
-figcaption{font-size:.82rem;color:var(--ink2);max-width:65ch}
-.defs{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:0;max-width:65ch}
-.defs dt{font-weight:600}
-.defs dd{margin:0;color:var(--ink2)}
-.eq{font-family:var(--display);text-align:center;font-size:1.1rem;color:var(--ink)}
-svg text{font-family:var(--body);fill:var(--ink2);font-size:12px}
-svg .axis{stroke:var(--ink2);stroke-width:.8;fill:none}
-svg .grid{stroke:var(--grid);stroke-width:1}
+#fouling .fx-main{max-width:46rem;margin:0 auto;padding:1rem 0 3rem;display:flex;flex-direction:column;gap:2.25rem}
+#fouling h2{font-family:var(--display);font-weight:300;text-wrap:balance;margin:0;line-height:1.2}
+#fouling h2.title{font-size:2.5rem}
+#fouling h2{font-size:2rem}
+#fouling p{margin:0;max-width:65ch}
+#fouling .kicker{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+#fouling .lede{font-size:1.25rem;color:var(--ink)}
+#fouling .muted{color:var(--ink2)}
+#fouling header,#fouling section{display:flex;flex-direction:column;gap:.9rem}
+#fouling .panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1rem;display:flex;flex-direction:column;gap:.85rem}
+#fouling .controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between}
+#fouling .seg{display:flex;flex-wrap:wrap;gap:.35rem}
+#fouling .seg button,#fouling .btn{font:inherit;font-size:.88rem;font-weight:500;padding:.42rem .75rem;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+#fouling .seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] #fouling .seg button[aria-pressed="true"]{color:#06202e}
+#fouling .btn{border-color:var(--ink2)}
+#fouling button:focus-visible,#fouling input:focus-visible,#fouling summary:focus-visible,#fouling a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#fouling .chart{position:relative;width:100%}
+#fouling .chart svg{display:block;width:100%;height:auto;overflow:visible}
+#fouling .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;line-height:1.35;padding:.35rem .5rem;border-radius:6px;white-space:nowrap;transform:translate(-50%,-110%);opacity:0;font-variant-numeric:tabular-nums}
+#fouling .legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.82rem;color:var(--ink2)}
+#fouling .legend span{display:inline-flex;align-items:center;gap:.4rem}
+#fouling .sw{display:inline-block;width:22px;height:0;border-top:2px solid var(--ink)}
+#fouling .sw.band{height:10px;border:0;background:var(--accent-soft)}
+#fouling .sw.path{border-color:var(--accent)}
+#fouling .sw.ref{border-top:2px dashed var(--ref)}
+#fouling .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+#fouling .tiles.three{grid-template-columns:repeat(3,1fr)}
+#fouling .tile{border:1px solid var(--rule);border-radius:8px;padding:.55rem .6rem;display:flex;flex-direction:column;gap:.1rem}
+#fouling .tile[data-on="true"]{border-color:var(--accent);background:var(--accent-soft)}
+#fouling .tile b{font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums}
+#fouling .tile small{font-size:.74rem;color:var(--ink2);line-height:1.25}
+#fouling .tile .bar{display:block;height:5px;border-radius:3px;background:var(--ref);margin-top:.35rem;min-width:3px}
+#fouling .tile[data-on="true"] .bar{background:var(--accent)}
+#fouling .takeaway{font-weight:600;color:var(--ink);margin:0}
+#fouling .sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+#fouling .sliders label{display:flex;flex-direction:column;gap:.25rem;font-size:.85rem;color:var(--ink2)}
+#fouling .sliders output{font-size:1.05rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+#fouling input[type=range]{width:100%;accent-color:var(--accent)}
+#fouling .result{display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline;border-top:1px solid var(--rule);padding-top:.8rem}
+#fouling .result .big{font-family:var(--display);font-size:2rem;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
+#fouling .result div{display:flex;flex-direction:column;gap:.15rem;font-size:.82rem;color:var(--ink2)}
+#fouling .result div b{font-size:1.05rem;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+#fouling .note{font-size:.82rem;color:var(--ink2)}
+#fouling details{font-size:.9rem;color:var(--ink2)}
+#fouling summary{cursor:pointer;font-weight:400;color:var(--ink)}
+#fouling details p{margin-top:.5rem}
+#fouling details h3{font-size:1rem;font-weight:500;color:var(--ink);margin:1rem 0 0}
+#fouling details .eq{font-size:1rem;margin-top:.5rem}
+#fouling .math{font-family:var(--display);color:var(--ink)}
+#fouling .cta{border-top:1px solid var(--rule);padding-top:1.5rem}
+#fouling .cta a{display:inline-block;font-weight:600;color:#fff;background:var(--accent);padding:.7rem 1.2rem;border-radius:8px;text-decoration:none;align-self:flex-start}
+:root[data-theme="dark"] #fouling .cta a{color:#06202e}
+#fouling ul{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.35rem;max-width:65ch}
+#fouling figure{margin:0;display:flex;flex-direction:column;gap:.6rem}
+#fouling figure svg{display:block;width:100%;height:auto}
+#fouling figcaption{font-size:.82rem;color:var(--ink2);max-width:65ch}
+#fouling .defs{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:0;max-width:65ch}
+#fouling .defs dt{font-weight:600}
+#fouling .defs dd{margin:0;color:var(--ink2)}
+#fouling .eq{font-family:var(--display);text-align:center;font-size:1.1rem;color:var(--ink)}
+#fouling svg text{font-family:var(--body);fill:var(--ink2);font-size:12px}
+#fouling svg .axis{stroke:var(--ink2);stroke-width:.8;fill:none}
+#fouling svg .grid{stroke:var(--grid);stroke-width:1}
 @media (max-width:560px){
-  h1{font-size:2rem}
-  h2{font-size:1.75rem}
-  .tiles{grid-template-columns:repeat(2,1fr)}
-  .sliders{grid-template-columns:1fr}
-  .defs{grid-template-columns:1fr;gap:.1rem}
-  .defs dd{margin-bottom:.45rem}
+#fouling h2.title{font-size:2rem}
+#fouling h2{font-size:1.75rem}
+#fouling .tiles{grid-template-columns:repeat(2,1fr)}
+#fouling .sliders{grid-template-columns:1fr}
+#fouling .defs{grid-template-columns:1fr;gap:.1rem}
+#fouling .defs dd{margin-bottom:.45rem}
+
 }
-.eq{overflow-x:auto;overflow-y:hidden}
-mjx-container[display="true"]{margin:.4em 0 !important}
+#fouling .eq{overflow-x:auto;overflow-y:hidden}
+#fouling mjx-container[display="true"]{margin:.4em 0 !important}
+
 </style>
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
-</head>
-<body>
-<main>
+
+<div id="fouling">
+<div class="fx-main">
 
 <header>
-  <a class="back" href="/" target="_top">← simonecasolo.github.io</a>
   <span class="kicker">Stochastic fouling theory</span>
-  <h1>One fouling curve, four mechanisms</h1>
+  <h2 class="title">One fouling curve, four mechanisms</h2>
   <p class="lede">A fouling curve is usually read as the signature of a mechanism: a straight line as deposition alone, a plateau as shear removal. It is not. Physically different mechanisms draw exactly the same mean curve, and what tells them apart is the scatter around it.</p>
 </header>
 
@@ -334,7 +305,7 @@ mjx-container[display="true"]{margin:.4em 0 !important}
   </div>
 </section>
 
-</main>
+</div>
 <script>
 (function(){
 "use strict";
@@ -536,5 +507,4 @@ hover(svg2,null,document.getElementById("t2"),hov2,function(px){
 draw2();
 })();
 </script>
-</body>
-</html>
+</div>
