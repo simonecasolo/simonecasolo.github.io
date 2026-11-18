@@ -1,3 +1,13 @@
+---
+layout: null
+title: Heat Exchangers Fouling Theory
+description: A stochastic fouling theory for heat exchangers - why one asymptotic fouling curve can hide different removal mechanisms.
+img: assets/img/fouling_theory.png
+importance: 0
+category: work
+related_publications: false
+permalink: /projects/0_fouling_theory/
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +42,6 @@
   --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
   color-scheme:dark;
 }
-/* Embedded in the projects page: match the site background and hide the back link. */
-:root.embedded{--bg:#ffffff;--ink:#000000}
-:root.embedded[data-theme="dark"]{--bg:#1c1c1d;--panel:#212529;--ink:#e8e8e8}
-:root.embedded .back{display:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 /* Typography matches the site (mdbootstrap + al-folio): Roboto 300, 1rem, line-height 1.5; h1 2.5rem, h2 2rem. */
@@ -119,20 +125,6 @@ svg .grid{stroke:var(--grid);stroke-width:1}
 .eq{overflow-x:auto;overflow-y:hidden}
 mjx-container[display="true"]{margin:.4em 0 !important}
 </style>
-<script>
-/* When embedded in the site (same origin), follow the site's light/dark toggle instead of the OS setting. */
-(function(){
-  var root=document.documentElement;
-  try{
-    if(window.parent===window)return;
-    var pr=window.parent.document.documentElement;
-    root.classList.add("embedded");
-    var sync=function(){var t=pr.getAttribute("data-theme");if(t==="dark"||t==="light")root.setAttribute("data-theme",t);};
-    sync();
-    new MutationObserver(sync).observe(pr,{attributes:true,attributeFilter:["data-theme"]});
-  }catch(e){}
-})();
-</script>
 <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
 </head>
