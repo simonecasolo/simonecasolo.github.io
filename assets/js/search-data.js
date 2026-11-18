@@ -387,7 +387,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-topological-data-analysis-for-industrial-condition-monitoring",
+          section: "News",},{id: "projects-heat-exchangers-fouling-theory",
+          title: 'Heat Exchangers Fouling Theory',
+          description: "Stochastic fouling theory for heat exchangers - why one asymptotic fouling curve can hide four different removal mechanisms.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/0_fouling_theory/";
+            },},{id: "projects-topological-data-analysis-for-industrial-condition-monitoring",
           title: 'Topological data analysis for industrial condition monitoring',
           description: "Condition based monitoring for process and equipment health via topology-derived indicators.",
           section: "Projects",handler: () => {
