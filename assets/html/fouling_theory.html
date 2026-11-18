@@ -10,15 +10,15 @@
 <meta property="og:title" content="One fouling curve, four mechanisms">
 <meta property="og:description" content="Why linear and Kern–Seaton fouling curves cannot identify the fouling mechanism, and what the scatter around them can. Interactive companion to arXiv:2611.22808.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* Layout idea: one reading column (max 46rem); each claim is a short text block followed by a
    full-width figure panel with its controls on top. Palette follows the paper's figures. */
 :root{
   --bg:#f6f8fa; --panel:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --rule:#dfe3e8; --grid:#e9ecef;
   --accent:#0072B2; --accent-soft:rgba(0,114,178,.14); --ref:#8a8f96; --mark:#D55E00;
-  --display:"Source Serif 4",Georgia,"Times New Roman",serif;
-  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --display:"Roboto Slab",Georgia,"Times New Roman",serif;
+  --body:"Roboto","Helvetica Neue",Arial,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -32,6 +32,10 @@
   --accent:#56B4E9; --accent-soft:rgba(86,180,233,.18); --ref:#7d8791; --mark:#f0894a;
   color-scheme:dark;
 }
+/* Embedded in the projects page: match the site background and hide the back link. */
+:root.embedded{--bg:#ffffff}
+:root.embedded[data-theme="dark"]{--bg:#1c1c1d;--panel:#212529}
+:root.embedded .back{display:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
@@ -113,6 +117,20 @@ svg .grid{stroke:var(--grid);stroke-width:1}
 .eq{overflow-x:auto;overflow-y:hidden}
 mjx-container[display="true"]{margin:.4em 0 !important}
 </style>
+<script>
+/* When embedded in the site (same origin), follow the site's light/dark toggle instead of the OS setting. */
+(function(){
+  var root=document.documentElement;
+  try{
+    if(window.parent===window)return;
+    var pr=window.parent.document.documentElement;
+    root.classList.add("embedded");
+    var sync=function(){var t=pr.getAttribute("data-theme");if(t==="dark"||t==="light")root.setAttribute("data-theme",t);};
+    sync();
+    new MutationObserver(sync).observe(pr,{attributes:true,attributeFilter:["data-theme"]});
+  }catch(e){}
+})();
+</script>
 <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
 </head>
@@ -120,7 +138,7 @@ mjx-container[display="true"]{margin:.4em 0 !important}
 <main>
 
 <header>
-  <a class="back" href="/">← simonecasolo.github.io</a>
+  <a class="back" href="/" target="_top">← simonecasolo.github.io</a>
   <span class="kicker">Stochastic fouling theory</span>
   <h1>One fouling curve, four mechanisms</h1>
   <p class="lede">A fouling curve is usually read as the signature of a mechanism: a straight line as deposition alone, a plateau as shear removal. It is not. Physically different mechanisms draw exactly the same mean curve, and what tells them apart is the scatter around it.</p>
@@ -153,7 +171,7 @@ mjx-container[display="true"]{margin:.4em 0 !important}
       <text x="550" y="129" style="fill:var(--ink);font-weight:600">asymptotic</text>
       <text x="550" y="172" style="fill:var(--ink2)">sawtooth</text>
     </svg>
-    <figcaption>Idealised shapes of fouling records after an induction period. Real records are noisier and often mix these shapes. The two in black, linear and asymptotic, are the classical laws studied below.</figcaption>
+    <figcaption>Idealised shapes of fouling records after an induction period. Real records are noisier and often mix these shapes. The two drawn darker, linear and asymptotic, are the classical laws studied below.</figcaption>
   </figure>
   <p>The habit, in short, is to read the shape as the mechanism. This work shows why that does not work.</p>
   <p>It does so by describing fouling as a stochastic process. Instead of one smooth deposition rate, material reaches the wall in random amounts at random times, and removal acts on whatever is there. The classical curves then describe the average over many such records, and the scatter of each real record around that average stops being a nuisance and becomes information.</p>
@@ -204,7 +222,7 @@ mjx-container[display="true"]{margin:.4em 0 !important}
 
 <section aria-labelledby="h-mech">
   <h2 id="h-mech">Same curve, different mechanism</h2>
-  <p>Now add removal. The straight line bends over to a plateau, the Kern–Seaton curve, and there are several physically different ways to get there. Pick a mechanism. The black line, the mean fouling resistance, does not move. The individual records and the band they fill do.</p>
+  <p>Now add removal. The straight line bends over to a plateau, the Kern–Seaton curve, and there are several physically different ways to get there. Pick a mechanism. The solid line, the mean fouling resistance, does not move. The individual records and the band they fill do.</p>
   <div class="panel">
     <p class="takeaway">The mean never moves. Watch the scatter on the plateau.</p>
     <div class="controls">

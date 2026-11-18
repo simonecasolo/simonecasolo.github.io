@@ -10,13 +10,14 @@ related_publications: false
 
 An asymptotic fouling curve is usually read as the signature of shear removal, but erosion, detachment, sloughing and surface saturation all produce exactly the same mean curve. This interactive explainer shows how the scatter around the mean tells them apart, and how much measurement noise limits what a thermally reconstructed fouling resistance can reveal about the deposition law.
 
-[Open the explainer in a full page](/assets/html/fouling_theory.html){:target="_blank"}
+[Open the explainer in a full page](/assets/html/fouling_theory.html){:target="_blank" rel="noopener"}
 
 <iframe
   id="fouling-frame"
   src="{{ '/assets/html/fouling_theory.html' | relative_url }}"
   title="One fouling curve, four mechanisms"
   style="width:100%;height:2600px;border:1px solid var(--global-divider-color);border-radius:8px;"
+  scrolling="no"
   loading="lazy"></iframe>
 
 <script>
@@ -25,7 +26,7 @@ An asymptotic fouling curve is usually read as the signature of shear removal, b
     function fit() {
       try {
         var d = f.contentWindow.document;
-        f.style.height = d.documentElement.scrollHeight + "px";
+        f.style.height = d.body.offsetHeight + "px";
       } catch (e) {}
     }
     f.addEventListener("load", function () {
