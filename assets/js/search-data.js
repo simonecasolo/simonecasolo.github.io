@@ -389,7 +389,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-heat-exchangers-fouling-theory",
           title: 'Heat Exchangers Fouling Theory',
-          description: "Stochastic fouling theory for heat exchangers - why one asymptotic fouling curve can hide four different removal mechanisms.",
+          description: "A stochastic fouling theory for heat exchangers - why one asymptotic fouling curve can hide different removal mechanisms.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/0_fouling_theory/";
             },},{id: "projects-topological-data-analysis-for-industrial-condition-monitoring",

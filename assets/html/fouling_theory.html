@@ -10,15 +10,15 @@
 <meta property="og:title" content="One fouling curve, four mechanisms">
 <meta property="og:description" content="Why linear and Kern–Seaton fouling curves cannot identify the fouling mechanism, and what the scatter around them can. Interactive companion to arXiv:2611.22808.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 /* Layout idea: one reading column (max 46rem); each claim is a short text block followed by a
    full-width figure panel with its controls on top. Palette follows the paper's figures. */
 :root{
   --bg:#f6f8fa; --panel:#ffffff; --ink:#0b0b0b; --ink2:#52514e; --rule:#dfe3e8; --grid:#e9ecef;
   --accent:#0072B2; --accent-soft:rgba(0,114,178,.14); --ref:#8a8f96; --mark:#D55E00;
-  --display:"Roboto Slab",Georgia,"Times New Roman",serif;
-  --body:"Roboto","Helvetica Neue",Arial,sans-serif;
+  --display:"Roboto",sans-serif;
+  --body:"Roboto",sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -33,21 +33,22 @@
   color-scheme:dark;
 }
 /* Embedded in the projects page: match the site background and hide the back link. */
-:root.embedded{--bg:#ffffff}
-:root.embedded[data-theme="dark"]{--bg:#1c1c1d;--panel:#212529}
+:root.embedded{--bg:#ffffff;--ink:#000000}
+:root.embedded[data-theme="dark"]{--bg:#1c1c1d;--panel:#212529;--ink:#e8e8e8}
 :root.embedded .back{display:none}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+/* Typography matches the site (mdbootstrap + al-folio): Roboto 300, 1rem, line-height 1.5; h1 2.5rem, h2 2rem. */
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;font-size:1rem;line-height:1.5}
 main{max-width:46rem;margin:0 auto;padding:2.5rem 1.25rem 4rem;display:flex;flex-direction:column;gap:2.25rem}
-h1,h2{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2rem,5.2vw,2.9rem);line-height:1.08}
-h2{font-size:1.5rem;line-height:1.2}
+h1,h2{font-family:var(--display);font-weight:300;text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:2.5rem}
+h2{font-size:2rem}
 p{margin:0;max-width:65ch}
 .back{font-size:.85rem;color:var(--ink2);text-decoration:none;align-self:flex-start}
 .back:hover{color:var(--accent)}
 .kicker{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
-.lede{font-size:1.15rem;color:var(--ink)}
+.lede{font-size:1.25rem;color:var(--ink)}
 .muted{color:var(--ink2)}
 header,section{display:flex;flex-direction:column;gap:.9rem}
 .panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1rem;display:flex;flex-direction:column;gap:.85rem}
@@ -82,16 +83,16 @@ button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{o
 .sliders output{font-size:1.05rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 input[type=range]{width:100%;accent-color:var(--accent)}
 .result{display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:baseline;border-top:1px solid var(--rule);padding-top:.8rem}
-.result .big{font-family:var(--display);font-size:2.1rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.result .big{font-family:var(--display);font-size:2rem;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
 .result div{display:flex;flex-direction:column;gap:.15rem;font-size:.82rem;color:var(--ink2)}
 .result div b{font-size:1.05rem;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
 .note{font-size:.82rem;color:var(--ink2)}
 details{font-size:.9rem;color:var(--ink2)}
-summary{cursor:pointer;font-weight:500;color:var(--ink)}
+summary{cursor:pointer;font-weight:400;color:var(--ink)}
 details p{margin-top:.5rem}
-details h3{font-size:.95rem;font-weight:600;color:var(--ink);margin:1rem 0 0}
+details h3{font-size:1rem;font-weight:500;color:var(--ink);margin:1rem 0 0}
 details .eq{font-size:1rem;margin-top:.5rem}
-.math{font-family:var(--display);font-style:italic;color:var(--ink)}
+.math{font-family:var(--display);color:var(--ink)}
 .cta{border-top:1px solid var(--rule);padding-top:1.5rem}
 .cta a{display:inline-block;font-weight:600;color:#fff;background:var(--accent);padding:.7rem 1.2rem;border-radius:8px;text-decoration:none;align-self:flex-start}
 :root[data-theme="dark"] .cta a{color:#06202e}
@@ -103,12 +104,13 @@ figcaption{font-size:.82rem;color:var(--ink2);max-width:65ch}
 .defs{display:grid;grid-template-columns:max-content 1fr;gap:.45rem 1rem;margin:0;max-width:65ch}
 .defs dt{font-weight:600}
 .defs dd{margin:0;color:var(--ink2)}
-.eq{font-family:var(--display);font-style:italic;text-align:center;font-size:1.1rem;color:var(--ink)}
+.eq{font-family:var(--display);text-align:center;font-size:1.1rem;color:var(--ink)}
 svg text{font-family:var(--body);fill:var(--ink2);font-size:12px}
 svg .axis{stroke:var(--ink2);stroke-width:.8;fill:none}
 svg .grid{stroke:var(--grid);stroke-width:1}
 @media (max-width:560px){
-  body{font-size:16px}
+  h1{font-size:2rem}
+  h2{font-size:1.75rem}
   .tiles{grid-template-columns:repeat(2,1fr)}
   .sliders{grid-template-columns:1fr}
   .defs{grid-template-columns:1fr;gap:.1rem}
